@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg-colour: #f1f1f1;
+  --nav-bg-colour: #1c181d;
+  --nav-child-bg-colour: #322f33;
+  --nav-child-hover-colour: #616161;
+  --nav-child-font-colour: #656266;
+  --main-font-colour-dark: #222222;
+  --main-font-colour-mid: #616161;
+  --main-font-colour-light: #f8f8f8;
+  --stroke-dark: #616161;
+  --stroke-mid: #e1e1e1;
+  --stroke-dark: #dbdbdb;
+  --main-hover: #f1f1f1;
+  --main-pressed: #f0f0f0;
+  --main-focused: #005bd3;
+  --profile-bg: #2cffa0;
+  --profile-text: #005730;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Components */
+.container {
+  padding: 0.8rem 1rem;
+}
+
+.material-symbols-outlined {
+  font-weight: 300;
+  color: #b4b4b4;
+  cursor: pointer;
+}
+
+p {
+  font-size: 0.9rem;
+}
+
+/*  */
+
+html {
+  font-family: 'Inter', sans-serif;
+  color: var(--main-font-colour-dark);
+}
+
+body {
+  background-color: var(--bg-colour);
+}
+
+/* Nav */
+nav {
+  background-color: var(--nav-bg-colour);
+}
+
+nav .logo {
+  background: url(https://crushingit.tech/hackathon-assets/shopify-icon.svg)
+    no-repeat left;
+  background-size: contain;
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer;
+}
+
+nav .inner-nav,
+nav .inner-nav .logo-input,
+.notification-profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav input {
+  margin-left: 0.8rem;
+  background-color: var(--nav-child-bg-colour);
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid var(--nav-child-font-colour);
+  width: 15rem;
+  padding: 0.6rem 0 0.6rem 2.7rem;
+  color: var(--main-font-colour-light);
+}
+
+nav input::placeholder {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #b4b4b4;
+}
+
+nav .input {
+  position: relative;
+}
+
+nav .input .search-icon {
+  position: absolute;
+  transform: translate(-50%, 25%);
+  left: 2.3rem;
+}
+
+nav .notification-profile span {
+  margin-right: 0.7rem;
+  font-weight: light;
+  color: var(--main-font-colour-light);
+}
+
+nav .notification-profile .profile {
+  background-color: var(--profile-bg);
+  color: var(--profile-text);
+  padding: 0.5rem 0.4rem;
+  border-radius: 7px;
+  cursor: pointer;
+}
+/* Nav ends */
+
+/* Main */
+/* Select plan */
+main {
+  margin-top: 2rem;
+}
+
+main .trial {
+  background-color: var(--main-font-colour-dark);
+}
+
+main .text-close {
+  display: flex;
+  background-color: var(--main-font-colour-dark);
+  color: var(--main-font-colour-light);
+}
+
+main .text-close .close {
+  color: var(--main-font-colour-light);
+  margin-top: 0.5rem;
+}
+
+main .trial a button {
+  padding: 0.5rem 0.7rem;
+  background-color: #fff;
+  border: none;
+  border-radius: 6px;
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+/* Select plan ends */
+
+/* Set-up guide */
+main .setup-guide-in {
+  margin-top: 1rem;
+  background-color: var(--main-font-colour-light);
+  border-top: 0.1px solid var(--stroke-mid);
+  border-bottom: 0.1px solid var(--stroke-mid);
+}
+
+main .setup-guide-in .setup-guide-top .progress-text {
+  margin-top: 1rem;
+  display: flex;
+}
+
+.setup-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.setup-title .more {
+  color: var(--main-font-colour-dark);
+}
+
+.progress-container {
+  position: relative;
+  margin-left: 0.7rem;
+  max-width: 100%;
+  width: 5rem;
+}
+
+.progress-container::before {
+  content: '';
+  background-color: #d1d1d1;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.progress {
+  background-color: var(--main-font-colour-dark);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  border-radius: 3px;
+  transition: 0.4s ease;
+}
+
+.setup-guide-bottom {
+  margin-top: 2rem;
+}
+
+.step-inner {
+  display: flex;
+  padding: 0.3rem;
+}
+
+.step-inner input {
+  align-self: flex-start;
+}
+
+.step-inner .step-content {
+  align-self: flex-start;
+  margin-left: 0.7rem;
+}
+
+.step-inner .step-content > * + * {
+  margin-top: 1rem;
+}
+
+.step-inner .step-content a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--main-focused);
+}
