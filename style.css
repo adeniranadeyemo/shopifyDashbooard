@@ -25,6 +25,15 @@
   box-sizing: border-box;
 }
 
+html {
+  font-family: 'Inter', sans-serif;
+  color: var(--main-font-colour-dark);
+}
+
+body {
+  background-color: var(--bg-colour);
+}
+
 /* Components */
 .container {
   padding: 0.8rem 1rem;
@@ -41,15 +50,6 @@ p {
 }
 
 /*  */
-
-html {
-  font-family: 'Inter', sans-serif;
-  color: var(--main-font-colour-dark);
-}
-
-body {
-  background-color: var(--bg-colour);
-}
 
 /* Nav */
 nav {
@@ -121,6 +121,10 @@ main {
   margin-top: 2rem;
 }
 
+main p {
+  padding-right: 1.8rem;
+}
+
 main .trial {
   background-color: var(--main-font-colour-dark);
 }
@@ -149,16 +153,22 @@ main .trial a button {
 /* Select plan ends */
 
 /* Set-up guide */
-main .setup-guide-in {
+main .setup-guide-out {
   margin-top: 1rem;
   background-color: var(--main-font-colour-light);
   border-top: 0.1px solid var(--stroke-mid);
   border-bottom: 0.1px solid var(--stroke-mid);
 }
 
-main .setup-guide-in .setup-guide-top .progress-text {
+main .setup-guide-out .setup-guide-top .progress-text {
   margin-top: 1rem;
   display: flex;
+}
+
+.setup-guide-out {
+  height: 8.5rem;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
 }
 
 .setup-title {
@@ -168,11 +178,16 @@ main .setup-guide-in .setup-guide-top .progress-text {
 
 .setup-title .more {
   color: var(--main-font-colour-dark);
+  transition: all 0.4s ease-in-out;
+}
+
+.rotate {
+  transform: rotate(180deg);
 }
 
 .progress-container {
   position: relative;
-  margin-left: 0.7rem;
+  margin-left: -1rem;
   max-width: 100%;
   width: 5rem;
 }
@@ -203,6 +218,16 @@ main .setup-guide-in .setup-guide-top .progress-text {
 
 .setup-guide-bottom {
   margin-top: 2rem;
+}
+
+.step {
+  margin-inline: -0.5rem;
+  padding-inline: 0.5rem;
+}
+
+.step.active {
+  background-color: #eeeeee;
+  padding-top: 0.5rem;
 }
 
 .step-inner {
