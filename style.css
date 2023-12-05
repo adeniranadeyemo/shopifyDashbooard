@@ -17,6 +17,8 @@
   --main-focused: #005bd3;
   --profile-bg: #2cffa0;
   --profile-text: #005730;
+  --transition1: all 0.2s ease-in-out;
+  --transition2: all 0.3s ease-in-out;
 }
 
 * {
@@ -66,7 +68,6 @@ nav .logo {
 }
 
 nav .inner-nav,
-nav .inner-nav .logo-input,
 .notification-profile {
   display: flex;
   justify-content: space-between;
@@ -74,7 +75,6 @@ nav .inner-nav .logo-input,
 }
 
 nav input {
-  margin-left: 0.8rem;
   background-color: var(--nav-child-bg-colour);
   border-radius: 8px;
   outline: none;
@@ -90,6 +90,10 @@ nav input::placeholder {
   color: #b4b4b4;
 }
 
+nav input:focus {
+  border: 1px solid var(--stroke-dark);
+}
+
 nav .input {
   position: relative;
 }
@@ -97,7 +101,7 @@ nav .input {
 nav .input .search-icon {
   position: absolute;
   transform: translate(-50%, 25%);
-  left: 2.3rem;
+  left: 1.3rem;
 }
 
 nav .notification-profile span {
@@ -158,17 +162,22 @@ main .setup-guide-out {
   background-color: var(--main-font-colour-light);
   border-top: 0.1px solid var(--stroke-mid);
   border-bottom: 0.1px solid var(--stroke-mid);
+  overflow: hidden;
+  transition: var(--transition1);
+}
+
+main .setup-guide-in {
+  background-color: var(--main-font-colour-light);
+}
+
+.show {
+  overflow: visible;
+  transition: overflow 0.3s ease-in-out;
 }
 
 main .setup-guide-out .setup-guide-top .progress-text {
   margin-top: 1rem;
   display: flex;
-}
-
-.setup-guide-out {
-  height: 8.5rem;
-  overflow: hidden;
-  transition: all 0.2s ease-in-out;
 }
 
 .setup-title {
@@ -178,7 +187,7 @@ main .setup-guide-out .setup-guide-top .progress-text {
 
 .setup-title .more {
   color: var(--main-font-colour-dark);
-  transition: all 0.4s ease-in-out;
+  transition: var(--transition2);
 }
 
 .rotate {
@@ -222,26 +231,78 @@ main .setup-guide-out .setup-guide-top .progress-text {
 
 .step {
   margin-inline: -0.5rem;
-  padding-inline: 0.5rem;
+  margin-bottom: 1.5rem;
+  /* height: 2.5rem; */
+  overflow: hidden;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: var(--transition2);
 }
 
-.step.active {
-  background-color: #eeeeee;
-  padding-top: 0.5rem;
+/* .step:last-child .step-content {
+  overflow: visible;
+} */
+
+.opened-step {
+  background-color: #eee;
 }
 
 .step-inner {
   display: flex;
-  padding: 0.3rem;
+  padding: 0.5rem 0 0 0.5rem;
+  position: relative;
 }
 
 .step-inner input {
   align-self: flex-start;
 }
 
-.step-inner .step-content {
+.step-inner input[type='checkbox'] {
+  position: absolute;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 2px dashed #aeaeae;
+  border-radius: 50%;
+}
+
+.step .step-content {
   align-self: flex-start;
-  margin-left: 0.7rem;
+  padding: 0.2rem 0 0.3rem 0.5rem;
+  margin-left: 1.7rem;
+}
+
+.step-inner .step-content button {
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 3px solid var(--main-font-colour-dark);
+  background-color: var(--main-font-colour-dark);
+  color: var(--main-font-colour-light);
+  font-size: 1em;
+  cursor: pointer;
+  position: relative;
+}
+
+.step-inner .step-content button::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  background: transparent;
+  border-radius: inherit;
+  border: 2px solid var(--main-font-colour-dark);
+  z-index: 1;
+}
+
+.step-inner .step-content button:active {
+  transform: scale(0.8rem);
+}
+
+.step-inner .step-content img {
+  display: none;
 }
 
 .step-inner .step-content > * + * {
