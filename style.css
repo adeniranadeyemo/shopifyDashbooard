@@ -156,7 +156,8 @@ nav input {
   border-radius: 8px;
   outline: none;
   border: 1px solid var(--nav-child-font-colour);
-  width: 15rem;
+  width: 13.5rem;
+  margin-left: 0.3rem;
   padding: 0.6rem 0 0.6rem 2.7rem;
   color: var(--main-font-colour-light);
 }
