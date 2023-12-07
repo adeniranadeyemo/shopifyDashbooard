@@ -55,3 +55,9 @@ const openClose = function (e) {
 };
 
 steps.addEventListener('click', openClose);
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.step')) {
+    stepReset();
+  }
+});

@@ -56,6 +56,8 @@ p {
 /* Nav */
 nav {
   background-color: var(--nav-bg-colour);
+  transition: var(--transition1);
+  position: relative;
 }
 
 nav .logo {
@@ -108,6 +110,10 @@ nav .notification-profile span {
   margin-right: 0.7rem;
   font-weight: light;
   color: var(--main-font-colour-light);
+}
+
+nav .notification-profile .user {
+  display: none;
 }
 
 nav .notification-profile .profile {
@@ -253,7 +259,28 @@ main .setup-guide-out .setup-guide-top .progress-text {
   position: relative;
 }
 
-.step-inner input {
+.step-inner .checkbox-con {
+  height: 2rem;
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 5;
+  top: 0;
+  transform: translate(-30%, 15%);
+}
+
+.step-inner .checkbox-con .checkbox {
+  background: url(https://crushingit.tech/hackathon-assets/icon-dashed-circle.svg)
+    no-repeat center;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  filter: invert(50%);
+}
+
+/* .step-inner input {
   align-self: flex-start;
 }
 
@@ -266,12 +293,12 @@ main .setup-guide-out .setup-guide-top .progress-text {
   height: 25px;
   border: 2px dashed #aeaeae;
   border-radius: 50%;
-}
+} */
 
 .step .step-content {
   align-self: flex-start;
-  padding: 0.2rem 0 0.3rem 0.5rem;
-  margin-left: 1.7rem;
+  padding: 0.2rem 0 0.3rem 0.3rem;
+  margin-left: 2.2rem;
 }
 
 .step-inner .step-content button {
