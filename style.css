@@ -60,6 +60,81 @@ nav {
   position: relative;
 }
 
+nav .profile-dropdown {
+  position: absolute;
+  right: 1rem;
+  background-color: var(--main-font-colour-light);
+  z-index: 1;
+  width: 85%;
+  border-radius: 10px;
+  margin-top: 1.2rem;
+  box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.08);
+  display: none;
+}
+
+.profile-dropdown.dropdown-show {
+  display: block;
+}
+
+nav .profile-dropdown > section {
+  padding: 0rem 0.8rem 1rem;
+}
+
+nav .profile-dropdown article {
+  margin-top: 1.3rem;
+  transition: var(--transition1);
+  cursor: pointer;
+}
+
+nav .profile-dropdown article:hover {
+  background-color: #ebebeb;
+  padding: 0.4rem;
+  border-radius: 10px;
+}
+
+nav .profile-dropdown-top-top,
+nav .profile-dropdown-top .top-top-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav .top-top-left > p {
+  margin-left: 0.7rem;
+  font-weight: 600;
+}
+
+nav .profile-dropdown-top .check {
+  color: var(--main-font-colour-dark);
+}
+
+nav .profile-dropdown-top-bottom {
+  display: flex;
+  align-items: center;
+}
+
+nav .profile-dropdown-top-bottom .store {
+  background: url(https://crushingit.tech/hackathon-assets/icon-store.svg)
+    no-repeat;
+  background-size: contain;
+  width: 1.5rem;
+  height: 1.5rem;
+  filter: invert(1%);
+}
+
+nav .profile-dropdown-top-bottom > p {
+  margin-left: 0.7rem;
+}
+
+nav .profile-dropdown-middle {
+  border-top: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+nav .profile-dropdown-bottom p:first-child {
+  font-weight: 600;
+}
+
 nav .logo {
   background: url(https://crushingit.tech/hackathon-assets/shopify-icon.svg)
     no-repeat left;
@@ -116,7 +191,7 @@ nav .notification-profile .user {
   display: none;
 }
 
-nav .notification-profile .profile {
+nav .profile {
   background-color: var(--profile-bg);
   color: var(--profile-text);
   padding: 0.5rem 0.4rem;

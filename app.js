@@ -4,6 +4,19 @@ const guideIn = document.querySelector('.setup-guide-in');
 //
 const steps = document.querySelector('.steps');
 const allSteps = document.querySelectorAll('.step');
+//
+const user = document.querySelector('.user-con');
+const profileDropdown = document.querySelector('.profile-dropdown');
+
+user.addEventListener('click', function () {
+  profileDropdown.classList.toggle('dropdown-show');
+});
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.user-con')) {
+    profileDropdown.classList.remove('dropdown-show');
+  }
+});
 
 guideOut.style.height = `8rem`;
 
