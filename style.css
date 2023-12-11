@@ -60,6 +60,11 @@ nav {
   position: relative;
 }
 
+nav a {
+  text-decoration: none;
+  color: var(--main-font-colour-dark);
+}
+
 nav .notification-dropdown {
   position: absolute;
   right: 1rem;
@@ -418,6 +423,7 @@ main .setup-guide-out .setup-guide-top .progress-text {
   width: 100%;
   height: 100%;
   filter: invert(50%);
+  transition: all 0.3s ease;
 }
 
 /* .step-inner input {
