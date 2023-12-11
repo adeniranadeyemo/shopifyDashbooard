@@ -6,15 +6,27 @@ const steps = document.querySelector('.steps');
 const allSteps = document.querySelectorAll('.step');
 //
 const user = document.querySelector('.user-con');
+const notification = document.querySelector('.notification');
 const profileDropdown = document.querySelector('.profile-dropdown');
+const notificationDropdown = document.querySelector('.notification-dropdown');
 
 user.addEventListener('click', function () {
   profileDropdown.classList.toggle('dropdown-show');
 });
 
+notification.addEventListener('click', function () {
+  notificationDropdown.classList.toggle('dropdown-show');
+});
+
 document.addEventListener('click', function (e) {
   if (!e.target.closest('.user-con')) {
     profileDropdown.classList.remove('dropdown-show');
+  }
+});
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.notification')) {
+    notificationDropdown.classList.remove('dropdown-show');
   }
 });
 

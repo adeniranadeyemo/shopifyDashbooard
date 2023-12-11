@@ -60,6 +60,64 @@ nav {
   position: relative;
 }
 
+nav .notification-dropdown {
+  position: absolute;
+  right: 1rem;
+  background-color: var(--main-font-colour-light);
+  z-index: 1;
+  width: 85%;
+  border-radius: 10px;
+  margin-top: 1.2rem;
+  box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.08);
+  display: none;
+}
+
+.notification-dropdown.dropdown-show {
+  display: block;
+}
+
+nav .notification-dropdown p {
+  font-weight: 600;
+}
+
+nav .notification-dropdown-top {
+  margin-top: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .alert-icons-con {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.unread {
+  background: url(https://crushingit.tech/hackathon-assets/icon-filter.svg)
+    no-repeat;
+  width: 1.2rem;
+  height: 1.2rem;
+  filter: invert(100%);
+}
+
+.seen {
+  background: url(https://crushingit.tech/hackathon-assets/icon-check-empty-circle.svg)
+    no-repeat;
+  background-size: contain;
+  width: 1.4rem;
+  height: 1.4rem;
+  filter: invert(100%);
+}
+
+.notification-dropdown-bottom {
+  background-color: #ebebeb;
+  padding: 0.7rem;
+  margin-top: 0.6rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
 nav .profile-dropdown {
   position: absolute;
   right: 1rem;
@@ -76,7 +134,7 @@ nav .profile-dropdown {
   display: block;
 }
 
-nav .profile-dropdown > section {
+nav section {
   padding: 0rem 0.8rem 1rem;
 }
 
@@ -331,8 +389,14 @@ main .setup-guide-out .setup-guide-top .progress-text {
 
 .step-inner {
   display: flex;
-  padding: 0.5rem 0 0 0.5rem;
+  padding: 0.5rem 0 0.5rem 0.5rem;
   position: relative;
+}
+
+.step .product-con {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .step-inner .checkbox-con {
@@ -379,7 +443,7 @@ main .setup-guide-out .setup-guide-top .progress-text {
 
 .step-inner .step-content button {
   padding: 0.6rem 0.9rem;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   border-radius: 10px;
   border: 3px solid rgba(255, 255, 255, 0.5);
   border-bottom: 3px solid var(--main-font-colour-dark);
