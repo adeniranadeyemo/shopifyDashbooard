@@ -18,6 +18,7 @@ const checkBoxes = document.querySelectorAll('.checkbox');
 const completedSteps = document.querySelector('.completed-steps');
 const totalSteps = document.querySelector('.total-steps');
 //
+const progress = document.querySelector('.progress');
 let completed = [];
 
 totalSteps.textContent = checkBoxes.length;
@@ -154,11 +155,17 @@ checkBoxes.forEach((checkBox) => {
       setImageBg(e);
       completed.push(clickCount);
       completedSteps.textContent = completed.length;
+      checkBox.classList.add('active');
     } else {
       resetImage(e);
       completed.pop();
       completedSteps.textContent = completed.length;
+      checkBox.classList.remove('active');
     }
+
+    const actives = document.querySelectorAll('.active');
+
+    progress.style.width = (actives.length / allSteps.length) * 100 + '%';
   });
 });
 

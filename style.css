@@ -426,6 +426,10 @@ main .setup-guide-out .setup-guide-top .progress-text {
   transition: all 0.3s ease;
 }
 
+.checkbox.active {
+  color: #1c181d;
+}
+
 /* .step-inner input {
   align-self: flex-start;
 }
