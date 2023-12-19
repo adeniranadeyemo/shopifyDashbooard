@@ -9,6 +9,7 @@
   --main-font-colour-dark: #222222;
   --main-font-colour-mid: #616161;
   --main-font-colour-light: #f8f8f8;
+  --main-colour4: #b3b3b3;
   --stroke-dark: #616161;
   --stroke-mid: #e1e1e1;
   --stroke-dark: #dbdbdb;
@@ -65,19 +66,8 @@ nav a {
   color: var(--main-font-colour-dark);
 }
 
-nav .notification-dropdown {
-  position: absolute;
-  right: 1rem;
-  background-color: var(--main-font-colour-light);
-  z-index: 1;
-  width: 85%;
-  border-radius: 10px;
-  margin-top: 1.2rem;
-  box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.08);
-  display: none;
-}
-
-.notification-dropdown.dropdown-show {
+.notification-dropdown.dropdown-show,
+.profile-dropdown.dropdown-show {
   display: block;
 }
 
@@ -123,7 +113,8 @@ nav .alert-icons-con {
   text-align: center;
 }
 
-nav .profile-dropdown {
+nav .profile-dropdown,
+nav .notification-dropdown {
   position: absolute;
   right: 1rem;
   background-color: var(--main-font-colour-light);
@@ -133,10 +124,6 @@ nav .profile-dropdown {
   margin-top: 1.2rem;
   box-shadow: 0 3px 5px 2px rgba(0, 0, 0, 0.08);
   display: none;
-}
-
-.profile-dropdown.dropdown-show {
-  display: block;
 }
 
 nav section {
@@ -153,6 +140,10 @@ nav .profile-dropdown article:hover {
   background-color: #ebebeb;
   padding: 0.4rem;
   border-radius: 10px;
+}
+
+nav .profile-dropdown article:focus {
+  border: 2px solid var(--main-focused);
 }
 
 nav .profile-dropdown-top-top,
@@ -231,8 +222,12 @@ nav input::placeholder {
   color: #b4b4b4;
 }
 
-nav input:focus {
+nav input:hover {
   border: 1px solid var(--stroke-dark);
+}
+
+nav input:focus {
+  border: 2px solid var(--stroke-mid);
 }
 
 nav .input {
@@ -242,7 +237,7 @@ nav .input {
 nav .input .search-icon {
   position: absolute;
   transform: translate(-50%, 25%);
-  left: 1.3rem;
+  left: 1.7rem;
 }
 
 nav .notification-profile span {
@@ -278,13 +273,16 @@ main .trial {
   background-color: var(--main-font-colour-dark);
 }
 
-main .text-close {
+main .trial-inner {
   display: flex;
+}
+
+main .text-button {
   background-color: var(--main-font-colour-dark);
   color: var(--main-font-colour-light);
 }
 
-main .text-close .close {
+main .text-button .close {
   color: var(--main-font-colour-light);
   margin-top: 0.5rem;
 }
@@ -447,8 +445,13 @@ main .setup-guide-out .setup-guide-top .progress-text {
 
 .step .step-content {
   align-self: flex-start;
-  padding: 0.2rem 0 0.3rem 0.3rem;
+  padding: 0.3rem 0 0.3rem 0.3rem;
   margin-left: 2.2rem;
+  display: flex;
+}
+
+.step .step-content .step-content-texts > * + * {
+  margin-top: 0.9rem;
 }
 
 .step-inner .step-content button {
@@ -459,7 +462,7 @@ main .setup-guide-out .setup-guide-top .progress-text {
   border-bottom: 3px solid var(--main-font-colour-dark);
   background-color: var(--main-font-colour-dark);
   color: var(--main-font-colour-light);
-  font-size: 1em;
+  font-size: 1rem;
   cursor: pointer;
   position: relative;
 }
@@ -491,4 +494,125 @@ main .setup-guide-out .setup-guide-top .progress-text {
   font-size: 1rem;
   font-weight: 500;
   color: var(--main-focused);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+@media screen and (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  p,
+  article {
+    font-size: 0.8rem;
+  }
+
+  h4 {
+    font-size: 0.9rem;
+  }
+
+  nav .logo {
+    background: url(https://crushingit.tech/hackathon-assets/shopify-icon-desktop.svg)
+      no-repeat left;
+    background-size: contain;
+    width: 6rem;
+    height: 2rem;
+    cursor: pointer;
+  }
+
+  nav .profile-dropdown,
+  nav .notification-dropdown {
+    width: 21%;
+  }
+
+  nav .user-con {
+    background: #303030;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  nav .notification {
+    background: #303030;
+    color: #b6b6b6;
+    padding: 0.23rem;
+    border-radius: 5px;
+  }
+
+  nav .notification:hover,
+  nav .user-con:hover,
+  nav .notification:active,
+  nav .user-con:active {
+    background: var(--main-font-colour-mid);
+  }
+
+  nav .notification:focus,
+  nav .user-con:focus {
+    border: 2px solid var(--main-focused);
+  }
+
+  nav .notification-profile .user {
+    display: block;
+    padding: 0.4rem 0.5rem;
+    color: #b6b6b6;
+    font-size: 0.9rem;
+  }
+
+  nav input {
+    width: 30rem;
+  }
+
+  main {
+    padding-inline: 20rem;
+  }
+
+  main .trial {
+    border-radius: 7px;
+  }
+
+  main .trial-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  main .text-button {
+    display: flex;
+    width: 40rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  main .trial a button {
+    margin-top: 0;
+  }
+
+  main .setup-guide-out,
+  main .setup-guide-in {
+    border-radius: 15px;
+  }
+
+  .setup-title .more:hover {
+    background: #ebebeb;
+    border-radius: 5px;
+  }
+
+  main .setup-guide-in {
+    border: 0.1px solid var(--stroke-mid);
+    background-color: var(--main-font-colour-light);
+  }
+
+  .step-inner .step-content button {
+    font-size: 0.87rem;
+    padding: 0.5rem 0.7rem;
+  }
+
+  .step-inner .step-content img {
+    display: block;
+    margin-top: 1.25rem;
+  }
 }

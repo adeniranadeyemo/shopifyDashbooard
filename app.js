@@ -47,7 +47,7 @@ document.addEventListener('click', function (e) {
   }
 });
 
-guideOut.style.height = `8rem`;
+guideOut.style.height = `7.5rem`;
 
 let guideInHeight;
 
@@ -104,14 +104,6 @@ document.addEventListener('click', function (e) {
   }
 });
 
-// function changeImageBg(e) {
-//   setTimeout((e) => {
-//     e
-//   }, 1000);
-
-//   setTimeout(() => {}, 1500);
-// }
-
 const setImageBg = function (e) {
   const checkBox = e.target.closest('.checkbox');
 
@@ -122,7 +114,7 @@ const setImageBg = function (e) {
       checkBox.style.transform = 'rotate(270deg)';
       checkBox.style.width = '47.05px';
       checkBox.style.height = '18.82px';
-    }, 500);
+    }, 300);
 
     setTimeout(() => {
       checkBox.style.backgroundImage =
@@ -131,7 +123,7 @@ const setImageBg = function (e) {
       checkBox.style.width = '80px';
       checkBox.style.height = '32px';
       checkBox.style.filter = 'invert(0%)';
-    }, 1000);
+    }, 700);
   }
 };
 
