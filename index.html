@@ -130,7 +130,7 @@
               <button role="menuitem">Manage Account</button>
             </li>
             <li>
-              <button>Log Out</button>
+              <button role="menuitem">Log Out</button>
             </li>
           </ul>
         </section>
@@ -185,19 +185,27 @@
             </a>
           </div>
 
-          <button>
-            <span class="material-symbols-outlined close"> close </span>
+          <button class="close">
+            <span class="material-symbols-outlined"> close </span>
           </button>
         </div>
       </section>
 
-      <section class="setup-guide-out">
+      <section class="setup-guide-out" role="menu" aria-labelledby="more">
         <div class="setup-guide-in">
           <div class="container">
             <section class="setup-guide-top">
+              <!--  -->
               <div class="setup-title">
                 <h4>Setup guide</h4>
-                <button class="more">
+
+                <button
+                  class="more"
+                  id="more"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  aria-controls="setup-guide-out"
+                >
                   <span class="material-symbols-outlined"> expand_more </span>
                 </button>
               </div>
@@ -220,11 +228,15 @@
 
             <section class="setup-guide-bottom">
               <div class="steps">
-                <div class="step" data-step="0">
+                <div class="step" id="step" data-step="0" role="menuitem">
                   <!--  -->
                   <div class="step-inner">
                     <button class="checkbox-con">
-                      <div class="checkbox"></div>
+                      <img
+                        src="https://crushingit.tech/hackathon-assets/icon-dashed-circle.svg"
+                        alt="checkbox"
+                        class="checkbox"
+                      />
                     </button>
 
                     <div class="step-content">
@@ -246,10 +258,14 @@
                   </div>
                 </div>
 
-                <div class="step" data-step="1">
+                <div class="step" data-step="1" role="menuitem">
                   <div class="step-inner">
                     <button class="checkbox-con">
-                      <div class="checkbox"></div>
+                      <img
+                        src="https://crushingit.tech/hackathon-assets/icon-dashed-circle.svg"
+                        alt="checkbox"
+                        class="checkbox"
+                      />
                     </button>
 
                     <div class="step-content">
@@ -275,10 +291,14 @@
                   </div>
                 </div>
 
-                <div class="step" data-step="2">
+                <div class="step" data-step="2" role="menuitem">
                   <div class="step-inner">
                     <button class="checkbox-con">
-                      <div class="checkbox"></div>
+                      <img
+                        src="https://crushingit.tech/hackathon-assets/icon-dashed-circle.svg"
+                        alt="checkbox"
+                        class="checkbox"
+                      />
                     </button>
 
                     <div class="step-content">
@@ -301,11 +321,15 @@
                   </div>
                 </div>
 
-                <div class="step" data-step="3">
+                <div class="step" data-step="3" role="menuitem">
                   <div class="step-inner">
-                    <div class="checkbox-con">
-                      <div class="checkbox"></div>
-                    </div>
+                    <button class="checkbox-con">
+                      <img
+                        src="https://crushingit.tech/hackathon-assets/icon-dashed-circle.svg"
+                        alt="checkbox"
+                        class="checkbox"
+                      />
+                    </button>
 
                     <div class="step-content">
                       <div class="step-content-texts">
@@ -327,11 +351,15 @@
                   </div>
                 </div>
 
-                <div class="step" data-step="4">
+                <div class="step" data-step="4" role="menuitem">
                   <div class="step-inner">
-                    <div class="checkbox-con">
-                      <div class="checkbox"></div>
-                    </div>
+                    <button class="checkbox-con">
+                      <img
+                        src="https://crushingit.tech/hackathon-assets/icon-dashed-circle.svg"
+                        alt="checkbox"
+                        class="checkbox"
+                      />
+                    </button>
 
                     <div class="step-content">
                       <div class="step-content-texts">

@@ -27,28 +27,29 @@ close.addEventListener('click', () => {
   trial.style.display = 'none';
 });
 
+function setFocus(dropdown, trigger) {
+  const allMenus = dropdown.querySelectorAll('[role="menuitem"]');
+
+  const isEXpanded = trigger.attributes['aria-expanded'].value === 'true';
+
+  if (isEXpanded) {
+    trigger.ariaExpanded = 'false';
+  } else {
+    trigger.ariaExpanded = 'true';
+    allMenus.item(0).focus();
+  }
+}
+
 notification.addEventListener('click', function () {
   notificationDropdown.classList.toggle('dropdown-show');
 
-  const isEXpanded = notification.attributes['aria-expanded'].value === 'true';
-
-  if (isEXpanded) {
-    notification.ariaExpanded = 'false';
-  } else {
-    notification.ariaExpanded = 'true';
-  }
+  setFocus(notificationDropdown, notification);
 });
 
 user.addEventListener('click', function () {
   profileDropdown.classList.toggle('dropdown-show');
 
-  const isEXpanded = user.attributes['aria-expanded'].value === 'true';
-
-  if (isEXpanded) {
-    user.ariaExpanded = 'false';
-  } else {
-    user.ariaExpanded = 'true';
-  }
+  setFocus(profileDropdown, user);
 });
 
 document.addEventListener('click', function (e) {
@@ -80,6 +81,8 @@ moreBtn.addEventListener('click', () => {
   stepReset();
 
   guideOut.classList.toggle('show');
+
+  setFocus(guideOut, moreBtn);
 });
 
 const openClose = function (e) {
@@ -120,16 +123,16 @@ const setImageBg = function (e) {
 
   if (checkBox) {
     setTimeout(() => {
-      checkBox.style.backgroundImage =
-        "url('https://crushingit.tech/hackathon-assets/icon-spinner.svg')";
+      checkBox.src =
+        'https://crushingit.tech/hackathon-assets/icon-spinner.svg';
       checkBox.style.transform = 'rotate(270deg)';
       checkBox.style.width = '47.05px';
       checkBox.style.height = '18.82px';
     }, 300);
 
     setTimeout(() => {
-      checkBox.style.backgroundImage =
-        "url('https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg')";
+      checkBox.src =
+        'https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg';
       checkBox.style.transform = 'rotate(0deg)';
       checkBox.style.width = '80px';
       checkBox.style.height = '32px';
@@ -142,8 +145,8 @@ const resetImage = function (e) {
   const checkBox = e.target.closest('.checkbox');
 
   if (checkBox) {
-    checkBox.style.backgroundImage =
-      "url('https://crushingit.tech/hackathon-assets/icon-dashed-circle.svg')";
+    checkBox.src =
+      'https://crushingit.tech/hackathon-assets/icon-dashed-circle.svg';
     checkBox.style.filter = 'invert(50%)';
   }
 };

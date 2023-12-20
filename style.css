@@ -151,8 +151,9 @@ nav .profile-dropdown ul li:hover {
   border-radius: 10px;
 }
 
-nav .profile-dropdown ul li:focus {
+nav ul li button:focus {
   border: 2px solid var(--main-focused);
+  border-radius: 5px;
 }
 
 nav .profile-dropdown-top .top-top button,
@@ -318,11 +319,6 @@ main .text-button {
   color: var(--main-font-colour-light);
 }
 
-main .text-button .close {
-  color: var(--main-font-colour-light);
-  margin-top: 0.5rem;
-}
-
 main .trial a button {
   padding: 0.5rem 0.7rem;
   background-color: #fff;
@@ -332,6 +328,10 @@ main .trial a button {
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
+}
+
+main .trial-inner .close:focus {
+  border: 2px solid var(--stroke-mid);
 }
 /* Select plan ends */
 
@@ -372,6 +372,11 @@ main .setup-guide-out .setup-guide-top .progress-text {
 .setup-title .more span:hover {
   background: #ebebeb;
   border-radius: 5px;
+}
+
+.setup-title .more:focus {
+  outline: none;
+  border: 2px solid var(--main-focused);
 }
 
 .rotate {
@@ -423,6 +428,15 @@ main .setup-guide-out .setup-guide-top .progress-text {
   transition: var(--transition2);
 }
 
+.step:hover {
+  background-color: #eee;
+}
+
+.step:focus,
+.step button:focus {
+  border: 2px solid var(--main-focused);
+}
+
 /* .step:last-child .step-content {
   overflow: visible;
 } */
@@ -454,10 +468,12 @@ main .setup-guide-out .setup-guide-top .progress-text {
   transform: translate(-30%, 15%);
 }
 
+.step .checkbox-con:focus {
+  width: 2rem;
+  border-radius: 50%;
+}
+
 .step-inner .checkbox-con .checkbox {
-  background: url(https://crushingit.tech/hackathon-assets/icon-dashed-circle.svg)
-    no-repeat center;
-  background-size: contain;
   width: 100%;
   height: 100%;
   filter: invert(50%);
@@ -469,7 +485,6 @@ main .setup-guide-out .setup-guide-top .progress-text {
 }
 
 .step .step-content {
-  /* align-self: flex-start; */
   padding: 0.3rem 0 0.3rem 0.3rem;
   margin-left: 2.2rem;
 }
@@ -480,7 +495,6 @@ main .setup-guide-out .setup-guide-top .progress-text {
 
 .step-inner .step-content button {
   padding: 0.6rem 0.9rem;
-  /* margin-bottom: 1rem; */
   border-radius: 10px;
   border: 3px solid rgba(255, 255, 255, 0.5);
   border-bottom: 3px solid var(--main-font-colour-dark);
@@ -641,7 +655,6 @@ button:active {
 
   .step-inner .step-content {
     display: flex;
-    /* align-items: center; */
     justify-content: space-between;
   }
 
@@ -656,7 +669,6 @@ button:active {
 
   .step-inner .step-content img {
     display: block;
-    /* align-self: flex-end; */
     margin-top: 1.25rem;
   }
 }
