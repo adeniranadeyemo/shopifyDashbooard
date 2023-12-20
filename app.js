@@ -27,12 +27,28 @@ close.addEventListener('click', () => {
   trial.style.display = 'none';
 });
 
-user.addEventListener('click', function () {
-  profileDropdown.classList.toggle('dropdown-show');
-});
-
 notification.addEventListener('click', function () {
   notificationDropdown.classList.toggle('dropdown-show');
+
+  const isEXpanded = notification.attributes['aria-expanded'].value === 'true';
+
+  if (isEXpanded) {
+    notification.ariaExpanded = 'false';
+  } else {
+    notification.ariaExpanded = 'true';
+  }
+});
+
+user.addEventListener('click', function () {
+  profileDropdown.classList.toggle('dropdown-show');
+
+  const isEXpanded = user.attributes['aria-expanded'].value === 'true';
+
+  if (isEXpanded) {
+    user.ariaExpanded = 'false';
+  } else {
+    user.ariaExpanded = 'true';
+  }
 });
 
 document.addEventListener('click', function (e) {
@@ -64,11 +80,6 @@ moreBtn.addEventListener('click', () => {
   stepReset();
 
   guideOut.classList.toggle('show');
-  if (guideOut.classList.contains('show')) {
-    guideOut.style.overflow = 'visible';
-  } else {
-    guideOut.style.overflow = 'hidden';
-  }
 });
 
 const openClose = function (e) {
@@ -160,7 +171,5 @@ checkBoxes.forEach((checkBox) => {
     progress.style.width = (actives.length / allSteps.length) * 100 + '%';
   });
 });
-
-console.log(completed);
 
 // steps.addEventListener('click', setImageBg);

@@ -44,7 +44,15 @@ body {
 
 .material-symbols-outlined {
   font-weight: 300;
-  color: #b4b4b4;
+  color: #f3f3f3;
+  cursor: pointer;
+}
+
+button {
+  background: none;
+  outline: none;
+  border: none;
+  font-family: inherit;
   cursor: pointer;
 }
 
@@ -76,7 +84,7 @@ nav .notification-dropdown p {
 }
 
 nav .notification-dropdown-top {
-  margin-top: 1.3rem;
+  margin-top: 1rem;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -89,20 +97,16 @@ nav .alert-icons-con {
 }
 
 .unread {
-  background: url(https://crushingit.tech/hackathon-assets/icon-filter.svg)
-    no-repeat;
-  width: 1.2rem;
-  height: 1.2rem;
   filter: invert(100%);
 }
 
 .seen {
-  background: url(https://crushingit.tech/hackathon-assets/icon-check-empty-circle.svg)
-    no-repeat;
-  background-size: contain;
-  width: 1.4rem;
-  height: 1.4rem;
   filter: invert(100%);
+}
+
+.unread:focus,
+.seen:focus {
+  border-radius: 2px solid var(--main-focused);
 }
 
 .notification-dropdown-bottom {
@@ -130,31 +134,44 @@ nav section {
   padding: 0rem 0.8rem 1rem;
 }
 
-nav .profile-dropdown article {
-  margin-top: 1.3rem;
+nav ul li {
+  list-style: none;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+
+nav .profile-dropdown ul li {
   transition: var(--transition1);
   cursor: pointer;
 }
 
-nav .profile-dropdown article:hover {
+nav .profile-dropdown ul li:hover {
   background-color: #ebebeb;
   padding: 0.4rem;
   border-radius: 10px;
 }
 
-nav .profile-dropdown article:focus {
+nav .profile-dropdown ul li:focus {
   border: 2px solid var(--main-focused);
 }
 
-nav .profile-dropdown-top-top,
-nav .profile-dropdown-top .top-top-left {
+nav .profile-dropdown-top .top-top button,
+nav .profile-dropdown-top-top .top-top .top-top-left,
+nav .profile-dropdown-top-bottom button {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-nav .top-top-left > p {
-  margin-left: 0.7rem;
+nav .profile-dropdown-top .top-top button {
+  width: 100%;
+}
+
+nav .profile-dropdown-top-top .top-top .top-top-left {
+  gap: 0.5rem;
+}
+
+nav .top-top .top-top-left > p {
   font-weight: 600;
 }
 
@@ -162,21 +179,12 @@ nav .profile-dropdown-top .check {
   color: var(--main-font-colour-dark);
 }
 
-nav .profile-dropdown-top-bottom {
-  display: flex;
-  align-items: center;
-}
-
-nav .profile-dropdown-top-bottom .store {
-  background: url(https://crushingit.tech/hackathon-assets/icon-store.svg)
-    no-repeat;
-  background-size: contain;
+nav .profile-dropdown-top-bottom button .store {
   width: 1.5rem;
-  height: 1.5rem;
   filter: invert(1%);
 }
 
-nav .profile-dropdown-top-bottom > p {
+nav .profile-dropdown-top-bottom button > p {
   margin-left: 0.7rem;
 }
 
@@ -185,17 +193,23 @@ nav .profile-dropdown-middle {
   border-bottom: 1px solid #dfdfdf;
 }
 
-nav .profile-dropdown-bottom p:first-child {
+nav .profile-dropdown-bottom button p:first-child {
   font-weight: 600;
+  text-align: left;
 }
 
+/*  */
 nav .logo {
-  background: url(https://crushingit.tech/hackathon-assets/shopify-icon.svg)
-    no-repeat left;
-  background-size: contain;
   width: 2.4rem;
-  height: 2.4rem;
   cursor: pointer;
+}
+
+nav .logo-mobile {
+  display: block;
+}
+
+nav .logo-laptop {
+  display: none;
 }
 
 nav .inner-nav,
@@ -240,10 +254,32 @@ nav .input .search-icon {
   left: 1.7rem;
 }
 
-nav .notification-profile span {
-  margin-right: 0.7rem;
+nav .notification-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav .notification {
+  padding: 0.3rem;
+}
+
+nav .notification-profile button {
   font-weight: light;
   color: var(--main-font-colour-light);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+nav .notification-profile button:hover,
+nav .notification-profile button:focus {
+  background: var(--nav-child-hover-colour);
+  outline: none;
+}
+
+nav .notification-profile button:nth-child(2):focus {
+  outline: 3px solid var(--main-font-colour-mid);
 }
 
 nav .notification-profile .user {
@@ -313,7 +349,7 @@ main .setup-guide-in {
   background-color: var(--main-font-colour-light);
 }
 
-.show {
+main .setup-guide-out.show {
   overflow: visible;
   transition: overflow 0.3s ease-in-out;
 }
@@ -328,9 +364,14 @@ main .setup-guide-out .setup-guide-top .progress-text {
   justify-content: space-between;
 }
 
-.setup-title .more {
+.setup-title .more span {
   color: var(--main-font-colour-dark);
   transition: var(--transition2);
+}
+
+.setup-title .more span:hover {
+  background: #ebebeb;
+  border-radius: 5px;
 }
 
 .rotate {
@@ -391,7 +432,6 @@ main .setup-guide-out .setup-guide-top .progress-text {
 }
 
 .step-inner {
-  display: flex;
   padding: 0.5rem 0 0.5rem 0.5rem;
   position: relative;
 }
@@ -428,30 +468,14 @@ main .setup-guide-out .setup-guide-top .progress-text {
   color: #1c181d;
 }
 
-/* .step-inner input {
-  align-self: flex-start;
-}
-
-.step-inner input[type='checkbox'] {
-  position: absolute;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 25px;
-  height: 25px;
-  border: 2px dashed #aeaeae;
-  border-radius: 50%;
-} */
-
 .step .step-content {
-  align-self: flex-start;
+  /* align-self: flex-start; */
   padding: 0.3rem 0 0.3rem 0.3rem;
   margin-left: 2.2rem;
-  display: flex;
 }
 
 .step .step-content .step-content-texts > * + * {
-  margin-top: 0.9rem;
+  margin-top: 1.5rem;
 }
 
 .step-inner .step-content button {
@@ -515,12 +539,19 @@ button:active {
   }
 
   nav .logo {
-    background: url(https://crushingit.tech/hackathon-assets/shopify-icon-desktop.svg)
-      no-repeat left;
+    background: no-repeat left;
     background-size: contain;
     width: 6rem;
     height: 2rem;
     cursor: pointer;
+  }
+
+  nav .logo-mobile {
+    display: none;
+  }
+
+  nav .logo-laptop {
+    display: block;
   }
 
   nav .profile-dropdown,
@@ -528,9 +559,15 @@ button:active {
     width: 21%;
   }
 
-  nav .user-con {
+  nav .notification-profile {
+    gap: 0.5rem;
+  }
+
+  nav .notification-profile button {
     background: #303030;
-    display: flex;
+  }
+
+  nav .user-con {
     align-items: center;
     cursor: pointer;
     border-radius: 5px;
@@ -552,7 +589,7 @@ button:active {
 
   nav .notification:focus,
   nav .user-con:focus {
-    border: 2px solid var(--main-focused);
+    outline: none;
   }
 
   nav .notification-profile .user {
@@ -567,7 +604,8 @@ button:active {
   }
 
   main {
-    padding-inline: 20rem;
+    width: 60%;
+    margin: 3rem auto;
   }
 
   main .trial {
@@ -582,7 +620,7 @@ button:active {
 
   main .text-button {
     display: flex;
-    width: 40rem;
+    width: 95%;
     justify-content: space-between;
     align-items: center;
   }
@@ -596,14 +634,19 @@ button:active {
     border-radius: 15px;
   }
 
-  .setup-title .more:hover {
-    background: #ebebeb;
-    border-radius: 5px;
-  }
-
   main .setup-guide-in {
     border: 0.1px solid var(--stroke-mid);
     background-color: var(--main-font-colour-light);
+  }
+
+  .step-inner .step-content {
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+  }
+
+  .step .step-content .step-content-texts {
+    width: 70%;
   }
 
   .step-inner .step-content button {
@@ -613,6 +656,22 @@ button:active {
 
   .step-inner .step-content img {
     display: block;
+    /* align-self: flex-end; */
     margin-top: 1.25rem;
   }
 }
+
+/* .step-inner input {
+  align-self: flex-start;
+}
+
+.step-inner input[type='checkbox'] {
+  position: absolute;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 2px dashed #aeaeae;
+  border-radius: 50%;
+} */

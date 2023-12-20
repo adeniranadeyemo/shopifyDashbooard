@@ -20,7 +20,17 @@
         <div class="inner-nav">
           <div class="logo-con">
             <a href="https://www.shopify.com">
-              <div class="logo"></div>
+              <img
+                class="logo logo-mobile"
+                src="https://crushingit.tech/hackathon-assets/shopify-icon.svg"
+                alt="Shopify's logo"
+              />
+
+              <img
+                class="logo logo-laptop"
+                src="https://crushingit.tech/hackathon-assets/shopify-icon-desktop.svg"
+                alt="Shopify's logo"
+              />
             </a>
           </div>
 
@@ -30,101 +40,166 @@
           </div>
 
           <div class="notification-profile">
-            <span class="material-symbols-outlined notification">
-              notifications
-            </span>
+            <button
+              class="notification"
+              id="notification"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="notification-dropdown"
+            >
+              <span class="material-symbols-outlined"> notifications </span>
+            </button>
 
-            <div class="user-con">
+            <button
+              class="user-con"
+              id="user-con"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="profile-dropdown"
+            >
               <div class="user">Davii collections</div>
               <div class="profile"><p>DC</p></div>
-            </div>
+            </button>
           </div>
         </div>
       </div>
 
-      <div class="profile-dropdown">
-        <!-- <a href="https://www.admin.shopify.com"> -->
+      <div
+        class="profile-dropdown"
+        id="profile-dropdown"
+        aria-labelledby="user-con"
+        role="menu"
+      >
         <section class="profile-dropdown-top">
-          <article class="profile-dropdown-top-top">
-            <div class="top-top-left">
-              <div class="profile"><p>DC</p></div>
+          <ul class="profile-dropdown-top-top">
+            <!-- <a href="https://www.admin.shopify.com"></a> -->
+            <li class="top-top">
+              <button role="menuitem">
+                <div class="top-top-left">
+                  <div class="profile"><p>DC</p></div>
 
-              <p>Davii collections</p>
-            </div>
+                  <p>Davii collections</p>
+                </div>
 
-            <span class="material-symbols-outlined check"> done </span>
-          </article>
+                <span class="material-symbols-outlined check"> done </span>
+              </button>
+            </li>
 
-          <article class="profile-dropdown-top-bottom">
-            <div class="store"></div>
-            <p>All Stores</p>
-          </article>
+            <li class="profile-dropdown-top-bottom">
+              <button role="menuitem">
+                <img
+                  src="https://crushingit.tech/hackathon-assets/icon-store.svg"
+                  class="store"
+                  alt="store icon"
+                />
+                <p>All Stores</p>
+              </button>
+            </li>
+          </ul>
         </section>
 
         <section class="profile-dropdown-middle">
-          <article class="middle-one">Help Center</article>
-          <article>Changelog</article>
-          <article>Community Forums</article>
-          <article>Hire a Shopify Partner</article>
-          <article>Keyboard Shortcuts</article>
+          <ul>
+            <li class="middle-one">
+              <button role="menuitem">Help Center</button>
+            </li>
+            <li>
+              <button role="menuitem">Changelog</button>
+            </li>
+            <li>
+              <button role="menuitem">Community Forums</button>
+            </li>
+            <li>
+              <button role="menuitem">Hire a Shopify Partner</button>
+            </li>
+            <li>
+              <button role="menuitem">Keyboard Shortcuts</button>
+            </li>
+          </ul>
         </section>
 
         <section class="profile-dropdown-bottom">
-          <article>
-            <p>David Micheal</p>
-            <p>davidmicheal@gmail.com</p>
-          </article>
-          <article>Manage Account</article>
-          <article>Log Out</article>
+          <ul>
+            <li>
+              <button role="menuitem">
+                <p>David Micheal</p>
+                <p>davidmicheal@gmail.com</p>
+              </button>
+            </li>
+            <li>
+              <button role="menuitem">Manage Account</button>
+            </li>
+            <li>
+              <button>Log Out</button>
+            </li>
+          </ul>
         </section>
       </div>
 
-      <!-- </a> -->
-
-      <div class="notification-dropdown">
+      <div
+        class="notification-dropdown"
+        id="notification-dropdown"
+        role="menu"
+        aria-labelledby="notification"
+      >
         <section>
-          <div class="notification-dropdown-top">
-            <p>Alerts</p>
-            <div class="alert-icons-con">
-              <div class="unread"></div>
-              <div class="seen"></div>
-            </div>
-          </div>
-          <div class="notification-dropdown-bottom">
-            <p>Alerts about your store and account will show up here</p>
-          </div>
+          <ul>
+            <li class="notification-dropdown-top">
+              <p>Alerts</p>
+
+              <div class="alert-icons-con">
+                <button role="menuitem">
+                  <img
+                    src="https://crushingit.tech/hackathon-assets/icon-filter.svg"
+                    alt="unread alerts"
+                    class="unread"
+                  />
+                </button>
+
+                <button role="menuitem">
+                  <img
+                    src="https://crushingit.tech/hackathon-assets/icon-check-empty-circle.svg"
+                    alt="read alerts"
+                    class="seen"
+                  />
+                </button>
+              </div>
+            </li>
+
+            <li class="notification-dropdown-bottom">
+              <p>Alerts about your store and account will show up here</p>
+            </li>
+          </ul>
         </section>
       </div>
     </nav>
 
     <main>
-      <div class="trial">
+      <section class="trial">
         <div class="container trial-inner">
-          <div class="trial-con">
-            <div class="text-button">
-              <p>
-                Extend your trial for $1/month for 3 months on select plans.
-              </p>
+          <div class="text-button">
+            <p>Extend your trial for $1/month for 3 months on select plans.</p>
 
-              <a href="https://www.shopify.com/pricing" class="select">
-                <button>Select a plan</button>
-              </a>
-            </div>
+            <a href="https://www.shopify.com/pricing" class="select">
+              <button>Select a plan</button>
+            </a>
           </div>
 
-          <span class="material-symbols-outlined close"> close </span>
+          <button>
+            <span class="material-symbols-outlined close"> close </span>
+          </button>
         </div>
-      </div>
+      </section>
 
-      <div class="setup-guide-out">
+      <section class="setup-guide-out">
         <div class="setup-guide-in">
           <div class="container">
-            <div class="setup-guide-top">
+            <section class="setup-guide-top">
               <div class="setup-title">
                 <h4>Setup guide</h4>
-                <span class="material-symbols-outlined more">
-                  expand_more
-                </span>
+                <button class="more">
+                  <span class="material-symbols-outlined"> expand_more </span>
+                </button>
               </div>
 
               <p>
@@ -141,16 +216,16 @@
                   <div class="progress" id="progress"></div>
                 </div>
               </div>
-            </div>
+            </section>
 
-            <div class="setup-guide-bottom">
+            <section class="setup-guide-bottom">
               <div class="steps">
                 <div class="step" data-step="0">
                   <!--  -->
                   <div class="step-inner">
-                    <div class="checkbox-con">
+                    <button class="checkbox-con">
                       <div class="checkbox"></div>
-                    </div>
+                    </button>
 
                     <div class="step-content">
                       <div class="step-content-texts">
@@ -173,9 +248,9 @@
 
                 <div class="step" data-step="1">
                   <div class="step-inner">
-                    <div class="checkbox-con">
+                    <button class="checkbox-con">
                       <div class="checkbox"></div>
-                    </div>
+                    </button>
 
                     <div class="step-content">
                       <div class="step-content-texts">
@@ -202,9 +277,9 @@
 
                 <div class="step" data-step="2">
                   <div class="step-inner">
-                    <div class="checkbox-con">
+                    <button class="checkbox-con">
                       <div class="checkbox"></div>
-                    </div>
+                    </button>
 
                     <div class="step-content">
                       <div class="step-content-texts">
@@ -282,12 +357,12 @@
                 <!-- Step 5 ends -->
               </div>
               <!-- Steps ends -->
-            </div>
+            </section>
             <!-- Steps-bottom ends -->
           </div>
           <!-- Container ends -->
         </div>
-      </div>
+      </section>
     </main>
     <script src="app.js"></script>
   </body>
