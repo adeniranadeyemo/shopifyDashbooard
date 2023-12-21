@@ -432,14 +432,14 @@ main .setup-guide-out .setup-guide-top .progress-text {
   background-color: #eee;
 }
 
-.step:focus,
+.step:focus {
+  border: 2px solid var(--main-focused);
+  background-color: #eee;
+}
+
 .step button:focus {
   border: 2px solid var(--main-focused);
 }
-
-/* .step:last-child .step-content {
-  overflow: visible;
-} */
 
 .opened-step {
   background-color: #eee;
@@ -466,11 +466,6 @@ main .setup-guide-out .setup-guide-top .progress-text {
   left: 5;
   top: 0;
   transform: translate(-30%, 15%);
-}
-
-.step .checkbox-con:focus {
-  width: 2rem;
-  border-radius: 50%;
 }
 
 .step-inner .checkbox-con .checkbox {

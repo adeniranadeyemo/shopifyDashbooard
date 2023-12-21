@@ -36,7 +36,8 @@ function setFocus(dropdown, trigger) {
     trigger.ariaExpanded = 'false';
   } else {
     trigger.ariaExpanded = 'true';
-    allMenus.item(0).focus();
+    allMenus.item(0).style.border = '2px solid var(--main-focused)';
+    // allMenus.item(0).focus();
   }
 }
 
