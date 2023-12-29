@@ -421,7 +421,6 @@ main .setup-guide-out .setup-guide-top .progress-text {
 .step {
   margin-inline: -0.5rem;
   margin-bottom: 1.5rem;
-  /* height: 2.5rem; */
   overflow: hidden;
   border-radius: 7px;
   cursor: pointer;
@@ -433,11 +432,6 @@ main .setup-guide-out .setup-guide-top .progress-text {
 }
 
 .step:focus {
-  border: 2px solid var(--main-focused);
-  background-color: #eee;
-}
-
-.step button:focus {
   border: 2px solid var(--main-focused);
 }
 
@@ -473,6 +467,11 @@ main .setup-guide-out .setup-guide-top .progress-text {
   height: 100%;
   filter: invert(50%);
   transition: all 0.3s ease;
+}
+
+.step-inner > button:focus {
+  border: 2px solid var(--main-focused);
+  border-radius: 50%;
 }
 
 .checkbox.active {
@@ -512,6 +511,10 @@ main .setup-guide-out .setup-guide-top .progress-text {
 
 .step-inner .step-content button:active {
   transform: scale(0.8rem);
+}
+
+.step-inner .step-content button:focus {
+  border: 3px solid var(--main-focused);
 }
 
 .step-inner .step-content img {

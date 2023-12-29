@@ -30,31 +30,68 @@ close.addEventListener('click', () => {
 });
 
 //
+function setFocus(dropdown, trigger) {
+  const isEXpanded = trigger.attributes['aria-expanded'].value === 'true';
+
+  const allMenuItems = dropdown.querySelectorAll('[role="menuitem"]');
+
+  if (isEXpanded) {
+    closeMenu(trigger);
+  } else {
+    openMenu(trigger, allMenuItems, dropdown);
+  }
+}
+
+function openMenu(trigger, allMenuItems, dropdown) {
+  trigger.ariaExpanded = 'true';
+  allMenuItems.item(0).focus();
+
+  dropdown.addEventListener('keyup', (e) => handleEscape(e, dropdown, trigger));
+
+  allMenuItems.forEach((menuItem, i) => {
+    menuItem.addEventListener('keyup', (e) =>
+      menuItemKeypress(e, i, allMenuItems)
+    );
+  });
+}
+
+function menuItemKeypress(e, i, allMenuItems) {
+  const isLastItem = i === allMenuItems.length - 1;
+
+  const isFirstItem = i === 0;
+
+  const nextMenuItem = allMenuItems.item(i + 1);
+  const prevMenuItem = allMenuItems.item(i - 1);
+
+  // Arrow right or Arrow down
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+    // Go to first
+    if (isLastItem) {
+      allMenuItems.item(0).focus();
+      return;
+    }
+
+    nextMenuItem.focus();
+  }
+
+  // Arrow left or Arrow up
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+    // Go to last
+    if (isFirstItem) {
+      allMenuItems.item(allMenuItems.length - 1).focus();
+      return;
+    }
+
+    prevMenuItem.focus();
+  }
+}
+
 function handleEscape(e, dropdown, trigger) {
   if (e.key === 'Escape') {
     toggleMenu(dropdown);
     closeMenu(trigger);
     trigger.focus();
   }
-}
-
-function setFocus(dropdown, trigger) {
-  const isEXpanded = trigger.attributes['aria-expanded'].value === 'true';
-
-  const allMenus = dropdown.querySelectorAll('[role="menuitem"]');
-
-  if (isEXpanded) {
-    closeMenu(trigger);
-  } else {
-    openMenu(trigger, allMenus, dropdown);
-  }
-}
-
-function openMenu(trigger, allMenus, dropdown) {
-  trigger.ariaExpanded = 'true';
-  allMenus.item(0).focus();
-
-  dropdown.addEventListener('keyup', (e) => handleEscape(e, dropdown, trigger));
 }
 
 function closeMenu(trigger) {
@@ -65,6 +102,12 @@ function closeMenu(trigger) {
 function toggleMenu(dropdown) {
   dropdown.classList.toggle('dropdown-show');
 }
+
+function toggleMenu2(dropdown) {
+  dropdown.classList.toggle('show');
+}
+
+//
 
 notification.addEventListener('click', function () {
   toggleMenu(notificationDropdown);
@@ -94,12 +137,6 @@ document.addEventListener('click', function (e) {
   }
 });
 
-// document.addEventListener('click', function (e) {});
-
-guideOut.style.height = `7.5rem`;
-
-let guideInHeight;
-
 const stepReset = function () {
   allSteps.forEach((step) => {
     step.style.height = '40px';
@@ -112,37 +149,48 @@ moreBtn.addEventListener('click', () => {
 
   stepReset();
 
-  guideOut.classList.toggle('show');
+  toggleMenu2(guideOut);
 
   setFocus(guideOut, moreBtn);
 });
 
+//
+
+guideOut.style.height = `7.5rem`;
+
+let guideInHeight;
+
 const toggleStepsCon = function (e) {
   const stepOut = e.target.closest('.step');
+  const isCheckbox = e.target.matches('.checkbox');
 
   if (stepOut) {
-    // Close all open steps
-    stepReset();
+    if (e.key === 'Enter' || (e.type === 'click' && !isCheckbox)) {
+      // Close all open steps
+      stepReset();
 
-    // Open the clicked step
-    stepOut.classList.add('opened-step');
+      // Open the clicked step
+      stepOut.classList.add('opened-step');
 
-    const stepOutHeight = stepOut.getBoundingClientRect().height;
+      const stepOutHeight = stepOut.getBoundingClientRect().height;
 
-    const stepIn = stepOut.querySelector('.step-inner');
-    const stepInHeight = stepIn.getBoundingClientRect().height;
+      const stepIn = stepOut.querySelector('.step-inner');
+      const stepInHeight = stepIn.getBoundingClientRect().height;
 
-    if (stepOutHeight) {
-      stepOut.style.height = `${stepInHeight}px`;
-    }
+      if (stepOutHeight) {
+        stepOut.style.height = `${stepInHeight}px`;
+      }
 
-    if (stepOutHeight === stepInHeight) {
-      stepOut.style.height = '40px';
+      if (stepOutHeight === stepInHeight) {
+        stepOut.style.height = '40px';
+      }
     }
   }
 };
 
-steps.addEventListener('click', toggleStepsCon);
+['click', 'keydown'].forEach((e) => steps.addEventListener(e, toggleStepsCon));
+
+// steps.addEventListener('click', toggleStepsCon);
 
 document.addEventListener('click', function (e) {
   if (!e.target.closest('.step')) {
