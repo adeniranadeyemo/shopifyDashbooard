@@ -205,19 +205,19 @@ const setImageBg = function (e) {
     setTimeout(() => {
       checkBox.src =
         'https://crushingit.tech/hackathon-assets/icon-spinner.svg';
-      checkBox.style.transform = 'rotate(270deg)';
-      checkBox.style.width = '47.05px';
-      checkBox.style.height = '18.82px';
+      checkBox.style.transform = 'rotate(450deg)';
+      checkBox.style.width = '23px';
+      checkBox.style.height = '23px';
     }, 300);
 
     setTimeout(() => {
       checkBox.src =
         'https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg';
       checkBox.style.transform = 'rotate(0deg)';
-      checkBox.style.width = '80px';
-      checkBox.style.height = '32px';
+      checkBox.style.width = '28px';
+      checkBox.style.height = '28px';
       checkBox.style.filter = 'invert(0%)';
-    }, 700);
+    }, 1200);
   }
 };
 
@@ -225,9 +225,23 @@ const resetImage = function (e) {
   const checkBox = e.target.closest('.checkbox');
 
   if (checkBox) {
-    checkBox.src =
-      'https://crushingit.tech/hackathon-assets/icon-dashed-circle.svg';
-    checkBox.style.filter = 'invert(50%)';
+    setTimeout(() => {
+      checkBox.src =
+        'https://crushingit.tech/hackathon-assets/icon-spinner.svg';
+      checkBox.style.transform = 'rotate(450deg)';
+      checkBox.style.width = '23px';
+      checkBox.style.height = '23px';
+      checkBox.style.filter = 'invert(50%)';
+    }, 300);
+
+    setTimeout(() => {
+      checkBox.src =
+        'https://crushingit.tech/hackathon-assets/icon-dashed-circle.svg';
+      checkBox.style.transform = 'rotate(0deg)';
+      checkBox.style.width = '28px';
+      checkBox.style.height = '28px';
+      checkBox.style.filter = 'invert(50%)';
+    }, 1200);
   }
 };
 
@@ -254,5 +268,3 @@ checkBoxes.forEach((checkBox) => {
     progress.style.width = (actives.length / allSteps.length) * 100 + '%';
   });
 });
-
-// steps.addEventListener('click', setImageBg);
