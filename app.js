@@ -245,7 +245,8 @@ const resetImage = function (e) {
   }
 };
 
-checkBoxes.forEach((checkBox) => {
+// checkBoxes.forEach((checkBox) => {
+const setCheckBox = function (checkBox) {
   let clickCount = 0;
 
   checkBox.addEventListener('click', (e) => {
@@ -267,4 +268,18 @@ checkBoxes.forEach((checkBox) => {
 
     progress.style.width = (actives.length / allSteps.length) * 100 + '%';
   });
-});
+};
+// });
+
+const checkBoxPress = function () {
+  checkBoxes.forEach((checkBox) => {
+    checkBox.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        setCheckBox(e.target);
+      }
+    });
+
+    checkBox.addEventListener('click', setCheckBox(checkBox));
+  });
+};
+checkBoxPress();
